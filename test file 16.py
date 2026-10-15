@@ -1,4 +1,4 @@
-approved_models = ("Macbook pro", "Dell XPS", "Lenovo ThinkPad", "HP Spectre")
+approved_models = ("Macbook pro", "Dell XP", "Lenovo ThinkPad", "HP Spectre")
 device_inventory = []
 
 
