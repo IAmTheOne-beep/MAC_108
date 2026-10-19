@@ -8,6 +8,6 @@ while True:
     if user_input == "2":
         break
     else:
-        clean_username = user_input.strip().lower().replace(" ", "")
+        clean_username = user_input.strip().lower().replace(" ", "_")
         users.append(clean_username)
         print(users)
