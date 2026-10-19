@@ -3,8 +3,7 @@
 #Output a clean, standardized username
 
 users = []
-user_input = "AdminUser_99"
-
+user_input = "  Admin     User_99  "
 clean_username = user_input.strip()
 clean_username = clean_username.lower()
 users.append(clean_username)
