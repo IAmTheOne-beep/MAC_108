@@ -3,8 +3,11 @@
 #Output a clean, standardized username
 
 users = []
-user_input = "  Admin     User_99  "
-clean_username = user_input.strip()
-clean_username = clean_username.lower()
-users.append(clean_username)
-print(users)
+while True:
+    user_input = input("Enter your username to be cleaned. Type 2 to exit \n")
+    if user_input == "2":
+        break
+    else:
+        clean_username = user_input.strip().lower().replace(" ", "")
+        users.append(clean_username)
+        print(users)
