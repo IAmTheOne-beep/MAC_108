@@ -8,6 +8,9 @@
 # RAW SOCK SYSTEM LOGS
 # Format: [Severity] | IP_ADDRESS | USERNAME | PORT | EVENT_STATUS
 
+# Lines 14-20 is our raw data logs, I want to create a list within a list
+
+
 raw_forensic_logs = [
     " [critical] | 192.168.1.105 | Admin_User | 22 | failed_login ",
     " [WARNING] | 10.0.0.50 | root | 443 | MALWARE_SIGNATURE_DETECTED ",
@@ -15,28 +18,25 @@ raw_forensic_logs = [
     " [alert] | 192.168.1.200 | SYS_ADMIN | 3389 | UNAUTHORIZED ACCESS ",
     " [warning] | 10.0.0.12 | test_acc | 8080 | brute_force_suspected ",
 ]
+#I want to modify every line in the raw forensic log to be lowercased
+lower_forensic_logs = []
+for logline in raw_forensic_logs:
+    sublist = logline.lower()
+    lower_forensic_logs.append(sublist)
 
-
+# Lines 24-27 created a new list, made of each entry within the raw data logs
 log_line_list = []
-for line in raw_forensic_logs:
-    sublist = line.split(" | ")
+for logline in lower_forensic_logs:
+    sublist = logline.split(" | ")
     log_line_list.append(sublist)
 
+#Lines 32-35 created an ip list
 ip_list = []
-for a in range(len(raw_forensic_logs)):
+for a in range(len(lower_forensic_logs)):
     ip_list.append(log_line_list[a][1])
 print(ip_list)
 
-
-#print(raw_forensic_logs[0])
-#ip1 = raw_forensic_logs[0].split("|")
-#print (ip1)
-#ip2 = ip1[0].strip(" ")
-#print (ip2)
-
-#raw_log_size = len(raw_forensic_logs)
-#print(raw_log_size)
-#for a in range(raw_log_size):
-#    raw_forensic_logs[a].split(" | ")
-#    print(raw_forensic_logs[a])
-#    a += 1
+user_list = []
+for a in range(len(lower_forensic_logs)):
+    user_list.append(log_line_list[a][2])
+print(user_list)
