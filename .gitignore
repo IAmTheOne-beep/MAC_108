@@ -1,0 +1,6 @@
+#Ignore VS Code editor Settings
+.vscode/
+
+#Ignore OneNote note files
+*.one
+*.onetoc2
