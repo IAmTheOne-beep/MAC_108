@@ -8,6 +8,7 @@
 alert_queue = []
 
 while True:
+    print("\n")
     print("System Main Menu Options:\n" \
           "1. Log New Alert\n" \
           "2. View Active Queue\n" \
