@@ -24,13 +24,13 @@ for logline in raw_forensic_logs:
     sublist = logline.lower()
     lower_forensic_logs.append(sublist)
 
-# Lines 24-27 created a new list, made of each entry within the raw data logs
+# Lines created a new list, made of each entry within the raw data logs
 log_line_list = []
 for logline in lower_forensic_logs:
     sublist = logline.split(" | ")
     log_line_list.append(sublist)
 
-#Lines 32-35 created an ip list
+#Lines created an ip list
 ip_list = []
 for a in range(len(lower_forensic_logs)):
     ip_list.append(log_line_list[a][1])
