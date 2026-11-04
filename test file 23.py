@@ -12,12 +12,15 @@ log_entry = {
 	"user": "admin"
 }
 
+#This will cylce through the log entry keys using .keys()
 for key in log_entry.keys():
 	print(f"These are the keys in the log_entry: {key}")
 
+#This will cycle through the log entry values using .values()
 for value in log_entry.values():
 	print(f"These are the values in the log_entry: {value}")
 
+#This will cycle through all the key-value pairs in the log entry using .items()
 for key, value in log_entry.items():
 	print(f"These are the key-value pairs in the log_entry: {key} : {value}")
 	
