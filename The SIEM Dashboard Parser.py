@@ -24,20 +24,30 @@ siem_logs = {
         ##Missing attempt key, we will handle this
 }   
 
-#This line has to return a 0 value for failed attempts if there is no
-#set value for it already
-failed_attempts = siem_logs.get('failed_attempts',0)
-
 #Create a list for high risk users, then if the failed_attempts
 #is a certain limit, add the user to that list
 high_risk_users = []
 
-for user_id in siem_logs.keys():
-    print(user_id)
-
+#We get the failed attempts for each user, if the key is missing, we will return a default value of 0
 for user_id, data in siem_logs.items():
-    failed_count = data["failed_attempts"]
-    if failed_count > 5:
+    failed_attempts = data.get("failed_attempts", 0)
+
+    #If the failed attemps is greater than 5, we make sure status is locked
+    if failed_attempts > 5:
+        data["status"] = "locked"
         high_risk_users.append(user_id)
 
-print(high_risk_users)
+        #We want to get the value for the username per user id, if there is no username,
+        #We return an unknown username string so it doesn't crash
+        username = data.get("username", "Unknown User")
+        print("Account locked for user:\n",username)
+
+print("High risk users:\n",high_risk_users)
+
+#We want to add a new key value pair to the logs
+for data in siem_logs.values():
+    data["2FA_enabled"] = True
+
+for user_id, data in siem_logs.items():
+    print("User ID:",{user_id}, "2FA Enabled:",{data['2FA_enabled']})
+
